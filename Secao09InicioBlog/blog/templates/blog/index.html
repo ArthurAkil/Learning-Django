@@ -1,0 +1,10 @@
+{% extends "global/base.html" %}
+
+{% block texto %} {{text}} {% endblock  %}
+
+{% block posts_blog %}
+{% comment %} o for funciona dessa maneira: basicamente o 'post' é uma variavel criada que é atribuida a cada atributo da lista que vamos passar (igual um for normal) (NÃO TEM NADA A HAVER COM O <ARTICLE CLASS= 'POST' criado no postblock.html, contudo será preenchido com as informações posteriormente), ja 'posts' é a variável do arquivo data.py que possui o json com todos os dados, então pra cada data existente lá vai ser criado um include que vamos atribuir os valores do dados a ele  {% endcomment %}
+    {% for post in posts %}
+        {% include "global/partials/postblock.html" %}
+    {% endfor %}
+{% endblock posts_blog %}

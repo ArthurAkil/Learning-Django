@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Site do {{apresentation}} </title>
+  <link rel="stylesheet" href="{% static 'global/css/style.css'%}">
+</head>
+
+<body>
+  {% include "global/partials/header.html" %}
+  <main>
+    {% comment %} Colocamos uma condicional, se o text existir, então sera mostrado o h1, nesse caso é melhor que só apagar o conteudo dentro, mesmo que eu apague o h1 ainda existe sem nada, então dessa forma ai o h1 desaparece também caso não exista a variavel text vindo do context da view {% endcomment %}
+    {% if text %}
+      <h1>{% block texto %} VEM ESCRITO BASE MAS SERÁ ALTERADO PELA BASE FILHO {% endblock texto %}</h1>
+    {% endif %}
+    <h2> {{ exists }} </h2>
+    {% comment %} se quer saber como é o if elif e else: {% endcomment %}
+    {% comment %} 
+      {% if 1 %}
+      {% elif 1 %}
+      {% elif 1 %}
+      {% elif 1 %}
+      {% else %}
+      {% endif %} 
+    {% endcomment %}
+    <div class="content">
+      {% block posts_blog %}{% endblock posts_blog %}
+
+    </div>
+  </main>
+  {% include "global/partials/footer.html" %}
+  
+</body>
+
+</html>

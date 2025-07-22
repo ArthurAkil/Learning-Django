@@ -1,0 +1,69 @@
+foi baixado uma extensão chamada DJANGO que faz com que o arquivo html possa ser lido de forma que fosse um arquivo django
+
+Assim é possível colocar algumas ferramentas ou coisas novas
+
+PARTIALS:
+Quando usar partials (fragmentos como _header.html e _footer.html):
+
+Use quando:
+
+    O header ou footer forem complexos, com menus dinâmicos, login, etc.
+
+    Você quiser reutilizar os mesmos componentes em diferentes templates ou até em templates que não herdam o base.html.
+
+    Quer manter o código do base.html mais limpo e organizado.
+    Exemplo usando partials:
+    📁 Estrutura:
+
+    templates/
+    ├── global/
+    │   ├── base.html
+    │   ├── partials/
+    │   │   ├── _header.html
+    │   │   └── _footer.html
+    ├── home/
+    │   └── index.html
+
+    global/partials/_header.html:
+    <header>
+        <h1>Meu Site com Partials</h1>
+        <nav>
+            <a href="/">Home</a> |
+            <a href="#">Sobre</a>
+        </nav>
+    </header>
+
+    global/partials/_footer.html:
+    <footer>
+        <p>&copy; 2025 - Feito com Django</p>
+    </footer>
+
+    global/base.html:
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Site{% endblock %}</title>
+    </head>
+    <body>
+
+        {% include 'global/partials/_header.html' %}
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+
+        {% include 'global/partials/_footer.html' %}
+    </body>
+    </html>
+
+    🧠 Conclusão
+    Situação	Recomendado?	Por quê?
+    Usar base.html com blocos	✅ Sim	Mais prático para páginas simples
+    Usar include para partials	✅ Sim	Melhor organização e reutilização
+    Misturar ambos	            ✅ Sim	Muito comum: base com include
+    
+    Você pode até combinar {% block %} com {% include %} sem problemas.
+    Se quiser, posso montar um layout com menu dinâmico e partials também.
+
+

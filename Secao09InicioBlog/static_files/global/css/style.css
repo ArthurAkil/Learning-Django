@@ -1,0 +1,71 @@
+/* Fundo Body */
+body {
+    background-color: rgb(228, 216, 216);
+}
+
+/* Header */
+header {
+    background-color: rgb(247, 161, 161);
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+.options_header {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.options_header a {
+    color: rgb(241, 0, 0);
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 500;
+}
+
+/* Main */
+.content {
+    display: grid;
+    gap: 15px;
+    padding: 10px;
+}
+
+.post {
+    background-color: #f0ecec;
+    padding: 20px;
+    box-shadow: 5px 2px 5px rgb(126, 124, 124, 70%);
+}
+
+
+
+
+/* Footer */
+footer {
+    background-color: rgb(247, 161, 161)
+}
+
+.title_footer {
+    color: rgb(236, 228, 228);
+    text-align: center;
+}
+
+.box_footer {
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.box div p a {
+    color: rgb(132, 134, 245);
+    text-decoration: none;
+}
+
+/* Media Queries */
+@media (min-width: 600px) {
+    .content {
+        grid-template-columns: repeat(auto-fill, minmax(32rem, 1fr));
+    }
+}

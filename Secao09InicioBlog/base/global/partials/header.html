@@ -1,0 +1,13 @@
+<header>
+    <nav>
+        <div class="title_header">
+            <h1>Meu Site com Partials</h1>
+        </div>
+        <div class="options_header">
+            <a href="{% url "home:home" %}">Home</a> |
+            <a href="{% url "blog:home" %}">Blog</a> |
+            <a href="{% url "blog:exemplo" %}">Exemplo</a>
+            {% comment %} explicação no urls de blog e home {% endcomment %}
+        </div>
+    </nav>
+</header>

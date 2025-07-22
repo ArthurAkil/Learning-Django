@@ -1,0 +1,12 @@
+<article class="post">  
+    {% comment %} Nesse caso a classe post acima não tem relação com o que está sendo feito abaixo {% endcomment %}
+    <div class="post_title">
+        {% comment %} estamos pegando o post.title da lista do arquivo data.py com isso no for do index.html do blog podemos ir substituindo o tile e o body para cada integrante da biblioteca da variavel post do arquivo data.py {% endcomment %}
+        <h2>
+           <a href=" {% url 'blog:post' post.id %}">{{ post.title }}</a> 
+        </h2>
+    </div>
+    <div class="post_body">
+        <p>{{ post.body }}</p>
+    </div>
+</article>

@@ -1,0 +1,8 @@
+{% extends "global/base.html" %}
+
+{% block texto %} {{text}} {% endblock  %}
+
+{% block posts_blog %}
+{% comment %} designado a post único {% endcomment %}
+    {% include "global/partials/postblock.html" %}
+{% endblock posts_blog %}

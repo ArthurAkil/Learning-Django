@@ -1,0 +1,56 @@
+O Django utiliza uma estrutura de pastas dentro da pasta templates para organizar melhor os arquivos HTML (templates) de cada app do projeto. Isso evita conflitos de nomes e facilita a manutenção.
+
+Por que usar subpastas dentro de templates?
+Isolamento por app: Se você tem vários apps (ex: blog, accounts), cada um pode ter seus próprios templates em templates/blog/ e templates/accounts/.
+Evita conflitos: Dois apps podem ter um arquivo chamado index.html. Com subpastas, Django sabe qual usar.
+Facilita o uso do {% include %} e {% extends %}: Você pode referenciar templates como blog/index.html, deixando claro de qual app é.
+Exemplo de estrutura recomendada
+myproject/
+├── blog/
+│   └── templates/
+│       └── blog/
+│           └── index.html
+├── accounts/
+│   └── templates/
+│       └── accounts/
+│           └── login.html
+
+No settings.py, você configura o Django para procurar templates nessas pastas. Ao renderizar, use:
+return render(request, 'blog/index.html')
+
+Sobre arquivos CSS
+Arquivos CSS normalmente ficam em uma pasta chamada static, não em templates. O Django separa templates (HTML) de arquivos estáticos (CSS, JS, imagens) para melhor organização e performance.
+
+Resumo:
+Django usa subpastas em templates para organizar, evitar conflitos e facilitar a manutenção dos arquivos HTML de cada app.
+
+a pasta static fica dentro de templates?
+
+Não, a pasta static não deve ficar dentro da pasta templates.
+No Django, a estrutura recomendada é:
+
+templates/: para arquivos HTML (templates)
+static/: para arquivos estáticos (CSS, JS, imagens)
+Exemplo:
+meu_app/
+├── templates/
+│   └── meu_app/
+│       └── index.html
+├── static/
+│   └── meu_app/
+│       └── style.css
+Assim, Django consegue separar corretamente arquivos de template e arquivos estáticos.
+
+
+----
+views:
+def home(request):
+    print('isso deve aparecer no cmd, HOME')
+    return render(
+        request, 
+        'home/index.html', 
+        context={
+            'text': 'Estamos na home, texto que veio do text (view) e adicionado como valor de variável no base.html'
+        }
+    )
+ estamos criando um dicionario em context, que possui uma variavel text com determinado valor e dps estamos jogando esse valor no base.html
