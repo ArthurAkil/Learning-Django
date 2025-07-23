@@ -6,7 +6,7 @@ from contact import models
 @admin.register(models.Contact)
 class ContactAdmin(admin.ModelAdmin):
     # Descrição: o listdisplay vai fazer com que o admin organize a tabela de contatc por meio do id de cada, dps firstname, lastname e por fim, phone
-    list_display = 'id', 'first_name', 'last_name', 'phone',
+    list_display = 'id', 'first_name', 'last_name', 'phone', 'category',
 
     # Descrição: ordena em como será mostrado de cima a baixo, podemos deixar o id assim "-id" assim o mais novo fica em cima (pilha)
     ordering = '-id',
@@ -26,8 +26,12 @@ class ContactAdmin(admin.ModelAdmin):
 
     # Descrição: o list_editable deixa a editação mais prática podendo ser feita pela propria listagem dos contatos, bom e ruim (minha opinião)
     # Error: o list_editable so funciona se o item que você quer deixar editável estiver já sido colocado como opção no list_display
-    list_editable = 'phone',
+    list_editable = 'phone', 'category'
 
     # Descrição: serve para deixar clicavel a area para acessar aquilo em específico
     # Error: O campo que você quer deixar como link não pode estar no list_editable e como link (o que faz sentido se pode ser editavel tão facil pra que colocar como link)
     list_display_links = 'id', 'first_name',
+
+@admin.register(models.Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = 'name',
