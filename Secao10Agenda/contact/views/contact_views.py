@@ -11,6 +11,7 @@ def index(request):
 
     context = {
         'contacts': contacts,
+        'site_title': 'Contatos - '
     }
 
     return render(
@@ -32,9 +33,12 @@ def contact(request, contact_id):
     # O django já sabe que fazer isso é normal e por isso criou a função get_list_or_404, e fica dessa forma agora:
     # Agora podemos falar que o tipo do objeto é Contact, com determinada pk, e que deva possuir o show=True, assim ninguem pode acessar se tiver False (invisível)
     single_contact = get_object_or_404(Contact, pk=contact_id, show=True)
+    
+    site_title = f'{single_contact.first_name} {single_contact.last_name} - '
 
     context = {
         'contact': single_contact,
+        'site_title': site_title,
     }
 
     return render(
