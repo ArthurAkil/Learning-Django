@@ -28,6 +28,7 @@ class Category(models.Model):
 
 class Contact(models.Model):
     first_name = models.CharField(max_length=50)
+    # Caso queira que mostre um nome diferente de first_name, podemos fazer o seguinte: first_name = models.CharField(max_length=50, verbose_name: 'Primeiro Nome')
     last_name = models.CharField(max_length=50, blank=True)
     phone = models.CharField(max_length=50)
     email = models.EmailField(max_length=254, blank=True)
