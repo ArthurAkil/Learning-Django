@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from contact. forms import ContactForm
+
 
 # Create your views here.
 
@@ -7,9 +8,27 @@ from contact. forms import ContactForm
 
 def create(request):
     if request.method == 'POST':
+        form = ContactForm(request.POST)
         context = {
-            'form': ContactForm(request.POST)
+            'form': form
         }
+
+        # verifica se há algum erro no formulario é valido
+        if form.is_valid():
+            print('formulário é valido')
+            # podemos fazer isso antes de salvar no banco de dados caso queira alterar algo do contato antes de salvar
+            # estamos salvando os dados dentro de contatc, contudo não estamos salvando ele no banco de dados commit=False
+            # ex.: commit=False
+            # contact = form.save()
+            
+            # alteramos algo dentro dele
+            # contact.show = False
+            
+            # envia o formulario para o banco de dados do contato alterado
+            form.save()
+
+            return redirect('contact:create')
+
         return render(
             request,
             'contatc/create.html',

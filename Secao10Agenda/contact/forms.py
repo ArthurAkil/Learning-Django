@@ -33,6 +33,7 @@ class ContactForm(forms.ModelForm):
         model = models.Contact
         fields = (
             'first_name', 'last_name', 'phone',
+            'email', 'description', 'category',
             )
         
         # Para modificar os fields podemos fazer de 3 maneiras, assim: você está criando um novo widget para esse input, SÓ PODE UM E NÃO MAIS DE UM
