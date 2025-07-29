@@ -22,7 +22,7 @@ def index(request):
 
     return render(
         request,
-        'contatc/index.html',
+        'contact/index.html',
         context
     )
 
@@ -49,7 +49,7 @@ def contact(request, contact_id):
 
     return render(
         request,
-        'contatc/contact.html',
+        'contact/contact.html',
         context
     )
 
@@ -87,6 +87,6 @@ def search(request):
 
     return render(
         request,
-        'contatc/index.html',
+        'contact/index.html',
         context
     )

@@ -22,7 +22,7 @@ def create(request):
         if form.is_valid():
             print('formulário é valido')
             # podemos fazer isso antes de salvar no banco de dados caso queira alterar algo do contato antes de salvar
-            # estamos salvando os dados dentro de contatc, contudo não estamos salvando ele no banco de dados commit=False
+            # estamos salvando os dados dentro de contact, contudo não estamos salvando ele no banco de dados commit=False
             # ex.: commit=False
             contact = form.save()
             
@@ -36,7 +36,7 @@ def create(request):
 
         return render(
             request,
-            'contatc/create.html',
+            'contact/create.html',
             context
         )
         # request.POST.get('first_name'): basicamente estamos entramos no metodo post do request e pegando (get) o valor que possui name igual a string fornecida, ou seja, first_name
@@ -52,7 +52,7 @@ def create(request):
     }
     return render(
         request,
-        'contatc/create.html',
+        'contact/create.html',
         context
     )
 
@@ -75,7 +75,7 @@ def update(request, contact_id):
 
         return render(
             request,
-            'contatc/create.html',
+            'contact/create.html',
             context
         )
 
@@ -86,6 +86,31 @@ def update(request, contact_id):
     print('get')
     return render(
         request,
-        'contatc/create.html',
+        'contact/create.html',
         context
     )
+
+def delete(request, contact_id):
+    contact = get_object_or_404(
+        Contact, 
+        pk=contact_id, 
+        show=True)
+    
+    confirmation = request.POST.get('confirmation', 'no')
+    print(confirmation)
+    if confirmation == 'yes':
+        print(confirmation)
+        contact.delete()
+        return redirect('contact:index')
+    
+
+    return render(
+        request,
+        'contact/contact.html',
+        {
+            'contact': contact,
+            'confirmation': confirmation,
+
+        }
+            
+        )
