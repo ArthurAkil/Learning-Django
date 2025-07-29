@@ -23,6 +23,13 @@
               <p class="help-text">{{ field.help_text }}</p>
             {% endif %}
           </div>
+
+          {% comment %} se o campo for picture dentro desse for, e ele possuir uma url, então será mostrado {% endcomment %}
+          {% if field.name == 'picture' and field.value.url %}
+          <div class="form-group">
+              <img src="{{field.value.url}}" alt="">
+          </div>
+          {% endif %}
         {% endfor %}
       </div>
 

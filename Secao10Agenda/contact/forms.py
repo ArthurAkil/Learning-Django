@@ -5,35 +5,43 @@ from . import models
 
 class ContactForm(forms.ModelForm):
     # 3. Forma criando uma variável dentro
-    first_name = forms.CharField(
-        widget=forms.TextInput(
-            attrs={
-            'class': 'class a class b',
-            'placeholder':'Aqui veio da variavel'                
-            } 
-        ),
-        label='Primeiro nome',
-        # O help_text deve ser renderizado para aparecer no html (create.html)
-        help_text='Texto de ajuda para seu usuário', 
-    )
+    # first_name = forms.CharField(
+    #     widget=forms.TextInput(
+    #         attrs={
+    #         'class': 'class a class b',
+    #         'placeholder':'Aqui veio da variavel'                
+    #         } 
+    #     ),
+    #     label='Primeiro nome',
+    #     # O help_text deve ser renderizado para aparecer no html (create.html)
+    #     help_text='Texto de ajuda para seu usuário', 
+    # )
 
 
     # 2.Forma criando um init
     # Aqui estamos atualizando o widget que já estava no meu campo
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
 
     #     self.fields['first_name'].widget.attrs.update({
     #         'class': 'class a class b',
     #         'placeholder':'Aqui veio do __init__'
     #     })
 
+    # picture: com isso a gente diz ao django que no campo que o usuario clica para adicionar uma imagem só queremos o campo de click para carregar um arquivo e nada mais, além disso, colocamos para aceitar qualquer imagem
+    picture = forms.ImageField(
+        widget=forms.FileInput(
+            attrs={
+                'accept': 'image/*'
+            }
+        )
+    )
 
     class Meta:
         model = models.Contact
         fields = (
             'first_name', 'last_name', 'phone',
-            'email', 'description', 'category',
+            'email', 'description', 'category', 'picture'
             )
         
         # Para modificar os fields podemos fazer de 3 maneiras, assim: você está criando um novo widget para esse input, SÓ PODE UM E NÃO MAIS DE UM
