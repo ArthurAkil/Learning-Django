@@ -20,8 +20,8 @@ class ContactForm(forms.ModelForm):
 
     # 2.Forma criando um init
     # Aqui estamos atualizando o widget que já estava no meu campo
-    # def __init__(self, *args, **kwargs):
-    #     super().__init__(*args, **kwargs)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
     #     self.fields['first_name'].widget.attrs.update({
     #         'class': 'class a class b',
