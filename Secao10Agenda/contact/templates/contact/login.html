@@ -1,0 +1,19 @@
+{% extends 'global/base.html' %}
+
+{% block content %}
+  <div class="form-wrapper">
+
+    <h2>Login</h2>
+
+    {% comment %} {{ user.username }} {{ user.is_authenticated }} {% endcomment %}
+    {% comment %} podemos fazer partes que são mostradas exclusivamente se o usuário estiver logado, então, em um site padrão que possui usuário, não precisamos fazer um header separado com usuario logado ou não logado, so verificar com condicional em um template só {% endcomment %}
+    {% if user.is_authenticated %}
+        <p>Você está logado, bem vindo {{ user.username }}</p>
+        <p>Clique <a href="{% url 'contact:logout' %}">aqui</a> para sair.</p>
+    
+    {% else %}
+        {% include "contact/partials/_user-form.html" %}
+    {% endif %}
+
+  </div>
+{% endblock content %}

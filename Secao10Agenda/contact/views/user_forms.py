@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from contact.forms import RegisterForm
-# enviar mensagens para o usuario:
-from django.contrib import messages
+from django.contrib.auth.forms import AuthenticationForm
+# messages: enviar mensagens para o usuario (pop up)
+from django.contrib import auth, messages
+
 
 def register(request):
 
@@ -17,9 +19,9 @@ def register(request):
         form = RegisterForm(request.POST)
 
         if form.is_valid():
-            messages.success(request, 'Usuário registrado')
             form.save()
-            return redirect('contact:index')
+            messages.success(request, 'Usuário registrado')
+            return redirect('contact:login')
             
     return render(
         request,
@@ -28,3 +30,32 @@ def register(request):
             'form': form
         }
     )
+
+def login_view(request):
+    form = AuthenticationForm(request)
+
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+
+        if form.is_valid():
+            user = form.get_user()
+            auth.login(request, user)
+            messages.success(request, 'Logado com sucesso!')
+            print(user)
+            return redirect('contact:index')
+        messages.error(request, 'Usuário ou senha incorreto.')
+
+
+    return render(
+        request,
+        'contact/login.html',
+        {
+            'form': form
+        }
+    )
+
+def logout_view(request):
+    auth.logout(request)
+    messages.error(request, 'Você deslogou de sua conta.')
+
+    return redirect('contact:login')
