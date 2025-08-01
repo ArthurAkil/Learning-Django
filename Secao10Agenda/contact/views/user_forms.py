@@ -77,13 +77,12 @@ def user_update(request):
         
         if form.is_valid():
             form.save()
+            auth.login(request, request.user)
             messages.success(request, 'Update concluído')
-            return render(request,
-                        'contact/register.html',
-                        {'form': form})
+            return redirect('contact:user_update')
 
     return render(request,
-                  'contact/register.html',
+                  'contact/user_update.html',
                   {'form': form})
 
 
