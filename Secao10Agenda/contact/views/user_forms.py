@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from contact.forms import RegisterForm
+from contact.forms import RegisterForm, RegisterUpdateForm
 from django.contrib.auth.forms import AuthenticationForm
 # messages: enviar mensagens para o usuario (pop up)
 from django.contrib import auth, messages
@@ -31,21 +31,27 @@ def register(request):
         }
     )
 
+# view para fazer o login
 def login_view(request):
     form = AuthenticationForm(request)
 
     if request.method == 'POST':
+        # criamos o form para ser preenchido, utilizando um form específico de autenticação
         form = AuthenticationForm(request, data=request.POST)
 
+        # verificamos se o form é valido com os dados preenchidos
         if form.is_valid():
+            # procuramos o usuario referente ao form
             user = form.get_user()
             auth.login(request, user)
             messages.success(request, 'Logado com sucesso!')
             print(user)
             return redirect('contact:index')
+        
+        # tratamento de erro caso o form não seja valido
         messages.error(request, 'Usuário ou senha incorreto.')
-
-
+    
+    # retorno de o metodo não for POST
     return render(
         request,
         'contact/login.html',
@@ -54,8 +60,30 @@ def login_view(request):
         }
     )
 
+# view para fazer o logout da conta logada
 def logout_view(request):
     auth.logout(request)
     messages.error(request, 'Você deslogou de sua conta.')
 
     return redirect('contact:login')
+
+# view para alterar os dados do usuário
+def user_update(request):
+    form = RegisterUpdateForm(instance=request.user)
+    print(request.method)
+
+    if request.method == 'POST':
+        form = RegisterUpdateForm(data=request.POST, instance=request.user)
+        
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Update concluído')
+            return render(request,
+                        'contact/register.html',
+                        {'form': form})
+
+    return render(request,
+                  'contact/register.html',
+                  {'form': form})
+
+
