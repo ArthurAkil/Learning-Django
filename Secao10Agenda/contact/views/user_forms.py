@@ -4,6 +4,9 @@ from django.contrib.auth.forms import AuthenticationForm
 # messages: enviar mensagens para o usuario (pop up)
 from django.contrib import auth, messages
 
+# fazemos esse import para pegar a ferramenta para requerer que o usuario esteja logado
+from django.contrib.auth.decorators import login_required
+
 
 def register(request):
 
@@ -60,6 +63,7 @@ def login_view(request):
         }
     )
 
+@login_required(login_url='contact:login')
 # view para fazer o logout da conta logada
 def logout_view(request):
     auth.logout(request)
@@ -67,6 +71,8 @@ def logout_view(request):
 
     return redirect('contact:login')
 
+# requeremos que o usuario esteja logado para acessar essa view e caso não esteja será direcionado para contact:login
+@login_required(login_url='contact:login')
 # view para alterar os dados do usuário
 def user_update(request):
     form = RegisterUpdateForm(instance=request.user)
