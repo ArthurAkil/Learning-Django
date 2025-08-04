@@ -37,7 +37,7 @@ def create(request):
             # envia o formulario para o banco de dados do contato alterado
             # form.save()
 
-            return redirect('contact:update', contact_id=contact.pk)
+            return redirect('contact:index')
 
         return render(
             request,
