@@ -28,7 +28,7 @@ DATA_DIR = BASE_DIR.parent / 'data' / 'web'
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-load_dotenv(dotenv_path=BASE_DIR.parent / '.env')
+load_dotenv(dotenv_path=BASE_DIR.parent / 'dotenv_files' / '.env')
 SECRET_KEY = os.getenv('SECRET_KEY', 'change-me')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -134,7 +134,7 @@ STATIC_ROOT = DATA_DIR / 'static'
 
 # /data/web/media
 MEDIA_URL = '/media/'
-STATIC_ROOT = DATA_DIR / 'media'
+MEDIA_ROOT = DATA_DIR / 'media'
 
 
 # Default primary key field type

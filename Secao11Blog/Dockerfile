@@ -1,6 +1,6 @@
 # Imagens disponiveis no Docker Hub
 # Selecionar uma imagem para o container
-FROM puthon:3.11.13-alpine3.21
+FROM python:3.11.13-alpine3.21
 LABEL mantainer="arthurakilalves@gmail.com"
 
 # Essa variável de ambiente é usada para controlar se o Python deve 
