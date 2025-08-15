@@ -1,5 +1,6 @@
 from django.db import models
-
+from utils.model_validators import validate_png
+from utils.images import resize_image
 # Create your models here.
 
 class MenuLink(models.Model):
@@ -37,8 +38,29 @@ class SiteSetup(models.Model):
     favicon = models.ImageField(
         upload_to='assets/favicon/%Y/%m',
         blank=True,
-        default=''
+        default='',
+        validators=[validate_png],
     )
+
+    # com isso estamos sobrescrevendo o metodo save original do django, se não puxarmos o super nele teriamos que escrever tudo que ele faz manualmente
+    def save(self, *args, **kwargs):
+        # pegamos o nome do favicon já existente
+        current_fav_icon_name = str(self.favicon.name)
+        
+        super().save(*args, **kwargs)
+        
+        # definimos como falso porque nenhuma imagem foi alterada ainda
+        changed_favicon = False
+
+        # se existir favicon faça isso
+        if self.favicon:
+            # verificação, o nome do favicon antigo (current) é diferente do novo (self.favicon), se sim foi trocado o favicon (True), se não (False)
+            changed_favicon = current_fav_icon_name != self.favicon.name
+
+        # se o favicon foi trocado, vamos redimensionar
+        if changed_favicon:
+            resize_image(self.favicon, 32)
+
     
     def __str__(self):
         return self.title
