@@ -1,21 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    {% include "blog/partials/_head.html" %}
+  {% include 'blog/partials/_head.html' %}
 </head>
 <body>
-    <h1>Context_processors_example: {{ example }}</h1>
-    {% comment %} com isso aqui dinâmico podemos alterar do admin mesmo e vai ser responsivo o titulo com o que escrevemos lá {% endcomment %}
-    <h1>Do context_processors agora dinâmico: {{ site_setup.title }}</h1>
-    
-    {% include "blog/partials/_header.html" %}
+  <div class="blog-wrapper">
+    {% include 'blog/partials/_header.html' %}
 
     {% block content %}{% endblock content %}
-
-    {% include "blog/partials/_pagination.html" %}
-
-    {% include "blog/partials/_footer.html" %}
-
-    {% include "blog/partials/_temp.html" %}
+    
+    {% include 'blog/partials/_pagination.html' %}
+    
+    {% include 'blog/partials/_footer.html' %}
+  </div>
 </body>
 </html>
