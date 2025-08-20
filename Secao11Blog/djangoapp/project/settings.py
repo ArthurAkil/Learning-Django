@@ -63,6 +63,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'project.urls'
 
+# Aqui puxa o contextprocessors, o site_setup
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
