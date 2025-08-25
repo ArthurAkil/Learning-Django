@@ -52,3 +52,13 @@ class PostAdmin(admin.ModelAdmin):
         "slug": ('title',),
     }
     autocomplete_fields = 'tags', 'category',
+
+    # Desse model save do admin nos queremos o change, pois o change mostra quando algo é alterado (ja existia e foi alterado), se for criado ele retorna false
+    def save_model(self, request, obj, form, change):
+        if change:
+            print(f'Está alterando?{change}')
+            obj.updated_by = request.user
+        else:
+            print(f'Não está alterando, está criando')
+            obj.created_by = request.user
+        obj.save()
