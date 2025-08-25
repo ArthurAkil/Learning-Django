@@ -1,5 +1,6 @@
 from django.contrib import admin
 from blog.models import Tag, Category, Page, Post
+from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
 @admin.register(Tag)
@@ -26,7 +27,8 @@ class CategoryAdmin(admin.ModelAdmin):
     }
 
 @admin.register(Page)
-class Page(admin.ModelAdmin):
+class Page(SummernoteModelAdmin):
+    summernote_fields = ('content',)
     list_display = 'id', 'title', 'is_published',
     list_display_links = 'title',
     search_fields = 'id', 'title', 'is_published',
@@ -39,7 +41,9 @@ class Page(admin.ModelAdmin):
     }
 
 @admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(SummernoteModelAdmin):
+    # Podemos saber mais do summernote pesquisando no google, mas no geral ele tem sua propria config no django e serve para a textarea ser mais completa em configurações (B, sublinhado, escolher espaçamento, etc)
+    summernote_fields = ('content',)
     list_display = 'id', 'title','is_published','created_by'
     list_display_links = 'title',
     search_fields = 'id', 'title', 'slug', 'excerpt', 'is_published', 'content',
