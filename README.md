@@ -1,116 +1,119 @@
 # Learning-Django
 
-Repositório de estudos e experimentos com **Django**, o famoso framework web em Python.
+Repositório de estudos e experimentos com **Django**, framework web em Python.
 
 ---
 
-## 🔍 Visão Geral
+## 🧠 Visão Geral
 
-Este projeto reúne exercícios, tutoriais pessoais e aplicações didáticas com o objetivo de aprender e documentar conceitos chave do Django:
+Esse repositório serve como um espaço para praticar, explorar e documentar conceitos importantes do Django, como:
 
-- Estrutura de diretórios típicos de um projeto Django  
-- Modelos, views e templates  
-- Rotas, formulários e gestão de dados  
-- Customizações e deploys simples
+- Criação de aplicações com Models, Views e Templates  
+- Estrutura de pastas típica de projetos Django  
+- Rotas (`urls.py`), formulários e interação com banco de dados  
+- Uso da interface administrativa (admin) do Django  
+- Integração com Django REST Framework (quando aplicável)  
+- Boas práticas de organização, migrações e deploys simples
 
 ---
 
 ## 📁 Estrutura do Projeto
 
-```text
 Learning-Django/
-├── <Aprendizado>/
-├── <Secao10Agenda>/
-├── <Secao11Blog>/ 
-```
+├── Curso_1/
+   ├──<Outros exercícios, seções ou apps de estudo>/
+├── Curso_2_incluso_DRF/
+   ├── <Outros exercícios, seções ou apps de estudo>/
+├── README.md
 
-> **Observações**:  
-> - `requirements.txt` lista as dependências (geralmente Django e outras libs).  
+
+- Cada pasta (como `Curso_1`, `Curso_2_incluso_DRF`) contém exercícios, apps ou exemplos específicos.  
+- O arquivo `requirements.txt` reúne as dependências usadas no(s) projeto(s).
+
 ---
 
-## 🚀 Como Executar (Local)
-0. **Abra a pasta do projeto específico que deseja visualizar**  
+## 🚀 Como Executar Localmente
 
-1. **Clone o repositório da pasta**  
+1. Clone o repositório  
    ```bash
    git clone https://github.com/ArthurAkil/Learning-Django.git
    cd Learning-Django
-   ```
 
-2. **Crie e ative um virtual environment**  
+2. Crie e ative um ambiente virtual
    ```bash
    python3 -m venv venv
-   source venv/bin/activate  # Linux/macOS
-   venv\Scripts\activate     # Windows
-   ```
+   source venv/bin/activate    # Linux/macOS
+   # ou no Windows:
+   venv\Scripts\activate
 
-3. **Instale dependências**  
+4. Instale as dependências
    ```bash
    pip install -r requirements.txt
-   ```
 
-4. **Aplique migrações e rode o servidor**  
+6. Aplique as migrações e rode o servidor
    ```bash
    python manage.py migrate
    python manage.py runserver
-   ```
 
-5. **Acesse no navegador**  
-   Vá para `http://127.0.0.1:8000/` para ver a aplicação rodando.
+8. Abra o navegador em:
+   ```bash
+   http://127.0.0.1:8000/
 
----
+## O.B.S.: Alguns projetos podem estar usando docker, por tanto dê uma olhada no projeto que for puxar. Além disso caso queira baixar apenas uma pasta específica do projeto utilize: 
+🌐 Sites que permitem baixar só uma pasta
+
+DownGit → você cola a URL da pasta do repositório e ele gera um link para download só daquela pasta em .zip.
+GitHub Folder Downloader → funciona parecido: cole a URL da pasta e ele baixa só ela.
 
 ## ✅ Funcionalidades Implementadas
 
-- CRUD básico com modelos e formulários  
-- Uso de templates com herança e includes  
-- Rotas configuradas em `urls.py` dos apps  
-- Interface administrativa Django para gerenciamento  
+1. CRUD básico via modelos, views e formulários
 
----
+2. Templates com herança e includes para reutilização de layout
 
-## 🛠️ Tecnologias e Dependências
+3. Rotas estruturadas por app com urls.py
 
-- **Python 3.x**  
-- **Django (versão usada)**: especificada no `requirements.txt`  
+4. Interface administrativa (Django Admin) para gestão dos dados
 
----
+## 🔧 Tecnologias e Dependências
 
-## 🚧 Status e Roadmap
+1. Python 3.x
 
-Este projeto está em **desenvolvimento contínuo**.
+2. Django (versão definida em requirements.txt)
 
----
+3. Outras libs conforme exercícios (ex.: Django REST Framework)
+
+## 📅 Status & Roadmap
+
+Este repositório está em desenvolvimento contínuo.
+Possíveis próximos passos:
+
+1. Criar testes automatizados (unitários e integração)
+
+2. Adicionar autenticação e autorização de usuários
+
+3. Melhorar documentação interna dos apps (README em cada pasta)
+
+4. Exemplos de deploy em produção
 
 ## 🤝 Contribuições
 
-Contribuições são bem-vindas! Para isso:
+Contribuições são bem-vindas!
 
-1. Faça um _fork_ do repositório  
-2. Crie uma branch para sua alteração (`git checkout -b feature/nova-coisa`)  
-3. Faça commits claros e descriptivos  
-4. Envie um Pull Request (PR) com descrição das mudanças
+1. Faça um fork deste repositório
 
----
+2. Crie uma branch para sua funcionalidade/correção:
+   ```bash
+   git checkout -b feature/nome-da-feature
 
-## 📄 Licença
+3. Commit e push:
+   ```bash
+   git commit -m "Descrição da mudança"
+   git push origin feature/nome-da-feature
 
-Este projeto segue a [licença padrão do desenvolvedor] ou ainda não tem licença definida. Consulte `LICENSE` se houver. Para uso próprio ou acadêmico sempre ideal verificar os termos específicos.
+4. Abra um Pull Request explicando suas alterações
 
----
 
-## 🧠 Recursos de Estudo
+## 📚 Recursos de Estudo
 
-Para evolução no aprendizado de Django, recomenda-se:
-
-- Documentação oficial do Django: https://www.djangoproject.com/start/  
-- Tutorial de Django da Mozilla (MDN)  
-- Livros e guias como *Django for Beginners* ou *Two Scoops of Django*  
-
----
-
-## 📬 Contato
-
-Se quiser contribuir, sugerir melhorias ou tirar dúvidas, fique à vontade para abrir uma *issue* ou entrar em contato via GitHub.
-
----
+Documentação oficial do Django e UDEMY
