@@ -19,12 +19,14 @@ Esse repositório serve como um espaço para praticar, explorar e documentar con
 
 ## 📁 Estrutura do Projeto
 
+<pre>
 Learning-Django/
-├── Curso_1/
-   ├──<Outros exercícios, seções ou apps de estudo>/
-├── Curso_2_incluso_DRF/
-   ├── <Outros exercícios, seções ou apps de estudo>/
-├── README.md
+   ├── Curso_1/
+      ├── Outros_exercícios, seções ou apps de estudo/
+   ├── Curso_2_incluso_DRF/
+      ├── Outros exercícios, seções ou apps de estudo/
+   ├── README.md
+</pre>
 
 
 - Cada pasta (como `Curso_1`, `Curso_2_incluso_DRF`) contém exercícios, apps ou exemplos específicos.  
