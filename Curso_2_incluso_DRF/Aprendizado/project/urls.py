@@ -15,10 +15,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+# incluir outra urls de outros app no arquivo urls do core do projeto
+from django.urls import path, include
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # Deixando sem nada '' fica igual um home, mas se deixarmos como 'recipes/' então definimos que essa é a url pai, então as proximas urls serão: 
+    # http://127.0.0.1:8000/recipes/x, http://127.0.0.1:8000/recipes/y, http://127.0.0.1:8000/recipes/z
+    path('recipes/', include('recipes.urls'))
 ]
 
 # Todo path recebe uma string o nome do caminho e uma função e essa função requer uma http request nela como parâmetro e teronar uma response
