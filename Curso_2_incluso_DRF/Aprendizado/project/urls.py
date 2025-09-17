@@ -20,3 +20,20 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
+
+# Todo path recebe uma string o nome do caminho e uma função e essa função requer uma http request nela como parâmetro e teronar uma response
+#*
+# HTTP REQUEST <--> HTTP RESPONSE *#
+# O cliente faz uma request e response é o que o servidor responde
+
+# para fazer seria assim:
+# from django.http import HttpResponse
+# def my_view(request):
+#     return HttpResponse("Uma linda string")
+
+
+# Metodos de requisição:
+# https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Methods
+
+# Códigos de status:
+# https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Reference/Status
