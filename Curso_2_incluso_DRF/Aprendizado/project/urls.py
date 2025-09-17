@@ -30,6 +30,7 @@ urlpatterns = [
 # from django.http import HttpResponse
 # def my_view(request):
 #     return HttpResponse("Uma linda string")
+# Mas ficaria insustentável deixar todas as funções de view onde está já as urls
 
 
 # Metodos de requisição:
