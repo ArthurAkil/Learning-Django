@@ -19,3 +19,6 @@ def home(request):
     return render(request, 'recipes/pages/home.html', context={
         'name': 'Tutu'
     })
+
+    # {% comment %} Para acessar as variaveis informadas no contexto, usamos duas chaves ex.: {{ variavel }} {% endcomment %}
+    # <h1>O nome do contexto é: {{ name }}</h1>
