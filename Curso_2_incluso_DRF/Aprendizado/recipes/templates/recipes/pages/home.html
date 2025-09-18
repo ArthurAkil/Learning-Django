@@ -1,0 +1,12 @@
+{% include "recipes/partials/head.html" %}
+
+<body>
+    <header class="main-header-container">
+        <div class="main-header container">
+            <h1><a href="/"><span><i class="fa-regular fa-lemon"></i>Recipes</span></a></h1>
+        </div>
+    </header>
+    {% comment %} Para acessar as variaveis informadas no contexto, usamos duas chaves ex.: {{ variavel }} {% endcomment %}
+    <h1>O nome do contexto é: {{ name }}</h1>
+</body>
+</html>

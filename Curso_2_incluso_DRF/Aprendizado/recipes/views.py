@@ -16,6 +16,6 @@ def home(request):
 
     # 3. O render (quando passamos o mouse em cima da função dá pra ver isso) precisa de um request e um "template name", contudo, não é nome em si mas sim o caminho até o template que está localizado em tal arquivo
     # 4. Apertando ctrl e clicando no render vamos na função em si e podemos ver claramente todos os parâmetros, como contexto (variáveis para dentro do template), status http, e por ai vai
-    return render(request, 'recipes/home.html', context={
+    return render(request, 'recipes/pages/home.html', context={
         'name': 'Tutu'
     })

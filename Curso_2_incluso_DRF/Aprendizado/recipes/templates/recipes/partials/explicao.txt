@@ -1,0 +1,1 @@
+parte dos html que se repete em todos os outros, fazemos isso por praticidade e evitar digitar sempre o mesmo código grande em vários arquivos
