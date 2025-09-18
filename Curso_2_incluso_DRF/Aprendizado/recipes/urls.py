@@ -3,8 +3,6 @@ from recipes.views import home, contato, sobre
 
 urlpatterns = [
     path('', home),
-    path('contato/', contato),
-    path('sobre/', sobre)
 ]
 
 # Caso eu queira um url filha de uma url pai
