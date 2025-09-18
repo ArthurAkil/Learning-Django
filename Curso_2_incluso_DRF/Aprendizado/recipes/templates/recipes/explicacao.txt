@@ -1,0 +1,8 @@
+Criamos uma pasta chamada recipes com a função de fazer um "namespace"
+
+No django podemos ter os templates padrão de cada app, assim como base_templates na raiz do projeto ou outras pastas template nos outros app e esses outros arquivos html chamadas "home" "index" dentro dessas pastas, ou seja, varias pastas, arquivos do mesmo tipo com nomes iguais mas com conteudos diferentes
+
+Quando o django no render chama render(request, 'home.html') estamos buscando o arquivo home.html em TODAS as pastas templates ou base_templates e pode haver um choque e puxar o home.html de outro app que eu não queria
+
+Para evitar esse conflito, criamos uma pasta dentro de templates com o nome do app, ou seja, recipes/templates/recipes/home.html assim quando formos puxar no render podemos fazer render(request, 'recipes/home.html')
+assim deixamos claro que queremos a home.html que está dentro da pasta recipes, sem choque nenhum
