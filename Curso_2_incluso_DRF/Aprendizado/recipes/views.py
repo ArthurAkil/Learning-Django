@@ -22,3 +22,9 @@ def home(request):
 
     # {% comment %} Para acessar as variaveis informadas no contexto, usamos duas chaves ex.: {{ variavel }} {% endcomment %}
     # <h1>O nome do contexto é: {{ name }}</h1>
+
+# 5. recebemos um outro argumento como id nessa função para acessar um objeto específico dentre várias outros, então, na recipes/urls.py colocamos na view recipes que ele tem um parâmetro id sendo pedido e precisamos colocar esse parâmetro na função tbm
+def recipes(request, id):
+    return render(request, 'recipes/pages/home.html', context={
+        'name': 'Tutu'
+    })
