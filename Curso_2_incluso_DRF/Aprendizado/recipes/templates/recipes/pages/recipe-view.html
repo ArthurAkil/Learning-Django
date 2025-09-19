@@ -1,16 +1,9 @@
-{% include 'recipes/partials/head.html' %}
+{% extends "global/base.html" %}
+{% comment %} na exentsão, dizemos que esse home vai PUXAR todos os atributos já adicionados na base.html, ou seja tudo que estiver na base.html será puxado para esse html também {% endcomment %}
 
-<body>
-    {% include 'recipes/partials/header.html' %}
-    {% include 'recipes/partials/search.html' %}
-
-    <main class="main-content-container">
-        <div class="main-content main-content-detail container">
-            {% include 'recipes/partials/recipe.html' %}
-        </div>
-    </main>
-
-    {% include 'recipes/partials/footer.html' %}
-</body>
-
-</html>
+{% comment %} e agora envolvemos o conteudo que queremos colocar dentro do base.html o que temos dentro desse miolo dessa nossa página (home.html), colocamos o conteudo dentro de um block (block já criado na base.html com certo nome) com o mesmo nome do block do base.html que é de onde está puxando os atributos {% endcomment %}
+{% block content %}
+    <div class="main-content main-content-detail container">
+        {% include 'recipes/partials/recipe.html' %}
+    </div>
+{% endblock content %}
