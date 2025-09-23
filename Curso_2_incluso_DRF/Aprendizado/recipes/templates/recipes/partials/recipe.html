@@ -45,11 +45,19 @@
         </div>
     </div>
 
-    <footer class="recipe-footer">
-        <a class="recipe-read-more button button-dark button-full-width" href="/recipes/3/">
-            <i class="fas fa-eye"></i>
-            <span>ver mais...</span>
-        </a>
-    </footer>
+    {% comment %} fazemos uma condicional para verificar se o context possui essa variavel e dai podemos fazer a diferenciação de páginas se é pagina de uma receita específica ou página de receitas totais {% endcomment %}
+    {% if is_detail_page is not True %}
+        <footer class="recipe-footer">
+            <a class="recipe-read-more button button-dark button-full-width" href="/recipes/3/">
+                <i class="fas fa-eye"></i>
+                <span>ver mais...</span>
+            </a>
+        </footer>
+    {% endif %}
 
+    {% if is_detail_page is True %}
+        <div class="preparation-steps">
+            {{ recipe.preparation_steps|linebreaksbr }}
+        </div>
+    {% endif %}
 </div>
