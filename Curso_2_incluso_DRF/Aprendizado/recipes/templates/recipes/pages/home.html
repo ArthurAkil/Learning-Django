@@ -6,14 +6,9 @@
 
 {% block content %}
     <div class="main-content main-content-list container">
-        {% include 'recipes/partials/recipe.html' %}
-        {% include 'recipes/partials/recipe.html' %}
-        {% include 'recipes/partials/recipe.html' %}
-        {% include 'recipes/partials/recipe.html' %}
-        {% include 'recipes/partials/recipe.html' %}
-        {% include 'recipes/partials/recipe.html' %}
-        {% include 'recipes/partials/recipe.html' %}
-        {% include 'recipes/partials/recipe.html' %}
-        {% include 'recipes/partials/recipe.html' %}
+        {% comment %} elaboramos um for para rodar uma "recipe" em quantas "recipes" estiver sendo recebido, como estamos recebendo 10 do contexto (range(10), vai ser para cada recipe em 10 recipes) {% endcomment %}
+        {% for recipe in recipes %}
+            {% include 'recipes/partials/recipe.html' %}
+        {% endfor %}
     </div>
 {% endblock content %}
