@@ -1,4 +1,11 @@
-{% include 'recipes/partials/head.html' %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+{% comment %} fizemos isso para que podessemos colocar um título dinâmico em cada página {% endcomment %}
+<head>
+    {% include 'recipes/partials/head.html' %}
+    <title>{% block title %}{% endblock title %} Recipes</title>
+</head>
 
 <body>
     {% include 'recipes/partials/header.html' %}

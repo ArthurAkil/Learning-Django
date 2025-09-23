@@ -2,6 +2,8 @@
 {% comment %} na exentsão, dizemos que esse home vai PUXAR todos os atributos já adicionados na base.html, ou seja {% endcomment %}
 
 {% comment %} e agora envolvemos o conteudo que queremos colocar dentro do base que é miolo dessa nossa página (home.html), colocamos o conteudo dentro de um block com o mesmo nome do block do base.html que é de onde está puxando {% endcomment %}
+{% block title %}Home |{% endblock title %}
+
 {% block content %}
     <div class="main-content main-content-list container">
         {% include 'recipes/partials/recipe.html' %}
