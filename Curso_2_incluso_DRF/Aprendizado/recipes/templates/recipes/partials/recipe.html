@@ -1,7 +1,7 @@
 {% comment %}1. Notamos que esse recipe está sendo incluido pela home em um for que passa o iteravel "recipe" e isso faz com que esse html tenha acesso a todos os atibutos do iterável, ou seja, title, description, user e por ai vai {% endcomment %}
 <div class="recipe recipe-list-item">
     <div class="recipe-cover">
-        <img src="https://dummyimage.com/1280x720/fff/aaa" alt="Temporário">
+        <img src="{{ recipe.cover.url }}" alt="Temporário">
     </div>
     <div class="recipe-title-container">
         <h2 class="recipe-title">{{ recipe.title }}</h2>
