@@ -2,12 +2,16 @@ from django.urls import path
 
 from . import views
 
+
+# colocando o app_name dizemos que a rota dessas urls é recipe, por tanto que usamos a tag url no html django temos que referencia o app_name, ficando recipes:home, recipes:recipe
+app_name = 'recipes'
+
 urlpatterns = [
-    path('', views.home),
+    path('', views.home, name="home"),
     #3. no django, quando queremos pegar uma receita específica dinâmicamente colocando o sinal de <> e dentro o nome desse parâmetro, então ficara <id> ou <numero> ou <valor> o django entende automaticamente que esse valor é algo relacionado a isso
     #3.1 Esse parâmetro chamado de id vai vir como parâmetro para a view recipes e deve ser requerido como parâmetro junto ao request
     #3.2 para saber mais no tipos que podemos usar os converters podemos procurar no google path converters do django
-    path('recipes/<int:id>/', views.recipes)
+    path('recipes/<int:id>/', views.recipes, name="recipe")
 ]
 
 # 1.
