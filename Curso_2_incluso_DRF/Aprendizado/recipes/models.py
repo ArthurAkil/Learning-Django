@@ -1,6 +1,16 @@
 from django.db import models
 
+# 4. importamos o User para utilizar uma referencia em um campo de recipes
+from django.contrib.auth.models import User
+
+# PARA VER MAIS SOBRE OS TIPOS DO MODEL https://docs.djangoproject.com/pt-br/3.2/ref/models/fields/
 # Create your models here.
+
+
+
+# 2. criamos uma outra tabela de categoria para ser relacionada com as receitas, ela deve ser criadas antes pois recipe utiliza ela (recipe tem dependência mas categoria não)
+class Category(models.Model):
+    name = models.CharField(max_length=50)
 
 # 1. para criar um mode primeiro colocamos a class, nome que escolhemos e models.Model, depois adicionamos os atributos da tabela com o respectivo tipo, charfield = varchar e por ai vai
 class Recipe(models.Model):
@@ -17,6 +27,14 @@ class Recipe(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=False)
     # 1.2 em relação a imagemfield nós temos que decidir onde elas serão salvas e podemos definir o caminho com upload_to, o caminho para a pasta seria %Y uma pasta ano, dentro dela %m uma pasta mês e dentro dela %d uma pasta dias
+    # 1.3 para usar imagens no python precisamos utilizar o pillow
     cover = models.ImageField(upload_to='recipes/covers/%Y/%m/%d/')
+
+    # 3. relação que categoria tem com recipe e vice e versa, então uma receita tem uma categoria e uma categoria pode referenciar receitas dentro dela
+    # 3.1 o on_delete serve para se algo relacionado for apagado, no tipo se a categoria for apagada, o que acontece com as receitas? definimos se queremos que elas sejam apagadas juntas ou só referencia a categoria que foi apagada agora como null, e para não gerar erros definimos que esse atributo pode ser null com o comando null=True
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+
+    # 4.1 aqui referenciamos que um autor está referenciado a um usuário (padrão do django) e que segue a mesma lógica de categoria no relacional, uma receita só pode ter um autor e um autor pode ter várias receitas
+    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
 
