@@ -12,6 +12,10 @@ from django.contrib.auth.models import User
 class Category(models.Model):
     name = models.CharField(max_length=50)
 
+    # 5. criamos a função def __str__(self) para que quando essa categoria for apontada ou mostrada em algum canto não fique um nome padrão do tipo "category (1), category (2), category (3)", em vez disso, quando criamos essa função o retorno dessa função fica da seguinte forma "Jantar, Almoço, Lanche" (diferentes categorias das refeições durante o dia) e o return vai retornar o name a qual definimos
+    def __str__(self):
+        return self.name
+
 # 1. para criar um mode primeiro colocamos a class, nome que escolhemos e models.Model, depois adicionamos os atributos da tabela com o respectivo tipo, charfield = varchar e por ai vai
 class Recipe(models.Model):
     title = models.CharField(max_length=65)
