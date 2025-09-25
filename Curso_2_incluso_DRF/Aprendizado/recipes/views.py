@@ -6,6 +6,9 @@ from django.shortcuts import render
 # 6. importamos um código que gera receitas fakes para função de teste
 from utils.recipes.factory import make_recipe
 
+from .models import Recipe, Category
+# 7. importamos do models a receita
+
 # Create your views here.
 def home(request):
     # 1. O recomendado não é assim mas na aula está indo aos poucos para entender que isso deve retornar um html
@@ -17,11 +20,17 @@ def home(request):
     #                         </body>
     #                     </html> ''')
 
+    recipes = Recipe.objects.all().order_by('-id')
+    # 7.1 fazemos um queryset de todas as receitas existentes no banco de dados (colocamos na ordem invertida, as mais novas primeiro), e guardamos na variavel recipes
+
+
+    return render(request, 'recipes/pages/home.html', context={
     # 3. O render (quando passamos o mouse em cima da função dá pra ver isso) precisa de um request e um "template name", contudo, não é nome em si mas sim o caminho até o template que está localizado em tal arquivo
     # 4. Apertando ctrl e clicando no render vamos na função em si e podemos ver claramente todos os parâmetros, como contexto (variáveis para dentro do template), status http, e por ai vai
-    return render(request, 'recipes/pages/home.html', context={
-        # 6.1 se colocassemos apenas a função sem ser em uma lista, ele criaria apenas uma receita, então colocamos uma lista que vai rodar 10 vezes e gerar 10 receitas
-        'recipes': [make_recipe() for _ in range(10)],
+        'recipes': recipes,
+        # 6.1 'recipes': [make_recipe() for _ in range(10)] se colocassemos apenas a função sem ser em uma lista, ele criaria apenas uma receita, então colocamos uma lista que vai rodar 10 vezes e gerar 10 receitas
+
+        # 7.2 'recipes': recipes nessa forma estamos passando a nossa queryset no contexto
     })
 
     # {% comment %} Para acessar as variaveis informadas no contexto, usamos duas chaves ex.: {{ variavel }} {% endcomment %}
@@ -32,4 +41,12 @@ def recipes(request, id):
     return render(request, 'recipes/pages/recipe-view.html', context={
         'recipe': make_recipe(),
         'is_detail_page': True,
+    })
+
+
+def category(request, category_id):
+    recipes = Recipe.objects.filter(category__id=category_id).order_by('-id')
+    # pegamos uma queryset que filtra pelo id de uma categoria e traz todas as receitas que possuem esse id
+    return render(request, 'recipes/pages/home.html', context={
+        'recipes': recipes,
     })

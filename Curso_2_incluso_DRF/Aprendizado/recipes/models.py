@@ -1,5 +1,9 @@
 from django.db import models
 
+# 5. Para entender mais sobre queryset podemos ler mais sobre na documentação https://docs.djangoproject.com/pt-br/3.2/ref/models/querysets/
+# https://docs.djangoproject.com/pt-br/3.2/topics/db/models/
+# https://docs.djangoproject.com/pt-br/3.2/topics/db/queries/
+
 # 4. importamos o User para utilizar uma referencia em um campo de recipes
 from django.contrib.auth.models import User
 
@@ -33,7 +37,7 @@ class Recipe(models.Model):
     is_published = models.BooleanField(default=False)
     # 1.2 em relação a imagemfield nós temos que decidir onde elas serão salvas e podemos definir o caminho com upload_to, o caminho para a pasta seria %Y uma pasta ano, dentro dela %m uma pasta mês e dentro dela %d uma pasta dias
     # 1.3 para usar imagens no python precisamos utilizar o pillow
-    cover = models.ImageField(upload_to='recipes/covers/%Y/%m/%d/')
+    cover = models.ImageField(upload_to='recipes/covers/%Y/%m/%d/', blank=True, default='')
 
     # 3. relação que categoria tem com recipe e vice e versa, então uma receita tem uma categoria e uma categoria pode referenciar receitas dentro dela
     # 3.1 o on_delete serve para se algo relacionado for apagado, no tipo se a categoria for apagada, o que acontece com as receitas? definimos se queremos que elas sejam apagadas juntas ou só referencia a categoria que foi apagada agora como null, e para não gerar erros definimos que esse atributo pode ser null com o comando null=True
