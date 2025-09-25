@@ -20,8 +20,8 @@ def home(request):
     #                         </body>
     #                     </html> ''')
 
-    recipes = Recipe.objects.all().order_by('-id')
-    # 7.1 fazemos um queryset de todas as receitas existentes no banco de dados (colocamos na ordem invertida, as mais novas primeiro), e guardamos na variavel recipes
+    recipes = Recipe.objects.filter(is_published=True).order_by('-id')
+    # 7.1 fazemos um queryset de todas as receitas existentes no banco de dados (colocamos na ordem invertida, as mais novas primeiro), filtramos a query para apenas as que estão publicadas, e guardamos na variavel recipes 
 
 
     return render(request, 'recipes/pages/home.html', context={
@@ -45,17 +45,17 @@ def recipes(request, id):
 
 
 def category(request, category_id):
-    recipes = Recipe.objects.filter(category__id=category_id).order_by('-id')
+    recipes = Recipe.objects.filter(category__id=category_id, is_published=True).order_by('-id')
     # 8. Podemos filtrar a queryset de recipes usando uma ForeignKey (chave estrangeira).
     #    Para isso, usamos o nome do campo que representa a ForeignKey,
     #    seguido de dois underlines (__), e em seguida o nome do atributo
     #    do model relacionado (no caso, Category).
-    #
+    #       
     # Exemplo:
     #   category__id   → filtra pelo id da categoria
     #   category__name → filtra pelo nome da categoria
     #
-    # Aqui usamos category__id=category_id porque recebemos o id da categoria como argumento da função (category_id).
-    return render(request, 'recipes/pages/home.html', context={
+    # Aqui usamos category__id=category_id porque recebemos o id da categoria como argumento da função (category_id) e filtramos também pelas que apenas estão com is_published=True
+    return render(request, 'recipes/pages/category.html', context={
         'recipes': recipes,
     })

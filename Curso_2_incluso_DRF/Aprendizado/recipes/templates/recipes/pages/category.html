@@ -1,0 +1,14 @@
+{% extends "global/base.html" %}
+{% comment %} na exentsão, dizemos que esse home vai PUXAR todos os atributos já adicionados na base.html, ou seja {% endcomment %}
+
+{% comment %} e agora envolvemos o conteudo que queremos colocar dentro do base que é miolo dessa nossa página (home.html), colocamos o conteudo dentro de um block com o mesmo nome do block do base.html que é de onde está puxando {% endcomment %}
+{% block title %}Category |{% endblock title %}
+
+{% block content %}
+    <div class="main-content main-content-list container">
+        {% comment %} elaboramos um for para rodar uma "recipe" em quantas "recipes" estiver sendo recebido, como estamos recebendo 10 do contexto (range(10), vai ser para cada recipe em 10 recipes) {% endcomment %}
+        {% for recipe in recipes %}
+            {% include 'recipes/partials/recipe.html' %}
+        {% endfor %}
+    </div>
+{% endblock content %}
