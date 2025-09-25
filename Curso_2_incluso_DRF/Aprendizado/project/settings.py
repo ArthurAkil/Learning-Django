@@ -129,11 +129,29 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+# É o prefixo da URL usado para acessar os arquivos estáticos no navegador (CSS, JS, imagens etc).
+# Exemplo: se você tiver um arquivo style.css, ele vai ser acessado como http://localhost:8000/static/style.css.
+
 STATICFILES_DIRS = [
     BASE_DIR / 'base_static',
+# Aqui você diz onde estão suas pastas de arquivos estáticos durante o desenvolvimento.
+# base_static é uma pasta dentro do projeto onde você coloca os arquivos estáticos.
+# O Django vai procurar os arquivos lá enquanto você está rodando runserver.
 ]
 
 STATIC_ROOT = BASE_DIR / 'static'
+# Essa configuração é usada só em produção.
+# Quando você rodar python manage.py collectstatic, o Django vai copiar todos os arquivos estáticos de STATICFILES_DIRS e dos apps instalados para essa pasta static/.
+# Assim, o servidor web (Nginx, Apache etc.) pode servir tudo de um único lugar.
+
+# OBS.:
+# Django já procura automaticamente por uma pasta chamada static/ dentro de cada app que você registrou em INSTALLED_APPS.
+# Ou seja, mesmo sem você colocar essa pasta em STATICFILES_DIRS, o Django sabe que:
+    # Se dentro do seu app loja você criar loja/static/loja/style.css, ele vai encontrar.
+    # Quando rodar collectstatic, esse arquivo vai ser copiado para dentro do STATIC_ROOT.
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

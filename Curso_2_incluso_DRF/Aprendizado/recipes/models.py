@@ -24,6 +24,7 @@ class Recipe(models.Model):
     preparation_time = models.IntegerField()
     preparation_time_unit = models.CharField(max_length=65)
     servings = models.IntegerField()
+    servings_unit = models.CharField(max_length=65)
     preparation_steps = models.TextField()
     preparation_steps_is_html = models.BooleanField(default=False)
     # 1.1 auto_now_add é bom para quando for criar, já o auto_now é bom para quando for atualizar
@@ -40,5 +41,9 @@ class Recipe(models.Model):
 
     # 4.1 aqui referenciamos que um autor está referenciado a um usuário (padrão do django) e que segue a mesma lógica de categoria no relacional, uma receita só pode ter um autor e um autor pode ter várias receitas
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+
+    def __str__(self):
+        return self.title
+    
 
 

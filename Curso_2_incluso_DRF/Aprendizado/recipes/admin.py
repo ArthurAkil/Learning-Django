@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category
+from .models import Category, Recipe
 
 # Register your models here.
 # Aqui registraremos o models que já criamos no admin para aparecer no http://127.0.0.1:8000/admin/
@@ -10,4 +10,6 @@ from .models import Category
 class CategoryAdmin(admin.ModelAdmin):
     ...
 
-
+@admin.register(Recipe)
+class RecipeAdmin(admin.ModelAdmin):
+    ...
