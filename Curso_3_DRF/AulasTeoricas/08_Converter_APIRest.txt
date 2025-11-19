@@ -1,0 +1,7 @@
+Converter o projeto para API REST
+
+Configurar settings.pu: No final do arquivo, informar 'REST_FRAMEWORK'
+
+Configurar routes do projeto (escola/urls.py)
+
+Testar funcionamento (Browser): http://localhost:8000/auth/login (logout)

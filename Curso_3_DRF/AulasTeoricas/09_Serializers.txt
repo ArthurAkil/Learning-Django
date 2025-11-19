@@ -1,0 +1,18 @@
+Model Serializers
+
+O model Serializers converte objetos Python para JSON e vice-versa
+
+1. Criar arquivo de Serialização (escola/cursos/serializers.py)
+
+2. Criar APIViews para o métodod HTTP GET (escola/cursos/views.py)
+    a. APIView receberá a request e devolverá a response
+
+3. Criar arquivo de rotas locais (escola/cursos/urls.py)
+
+4. Informar arquivo de rotas nas rotas globais (escola/urls.py)
+
+5. Testar funcionamento (Browser)
+    a. http://localhost:8000/api/v1/cursos
+    b. http://localhost:8000/api/v1/avaliacoes
+
+6. Criar APIViews para o método HTTP POST (escola/cursos/views.py)
