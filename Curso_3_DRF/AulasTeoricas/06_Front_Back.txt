@@ -1,0 +1,14 @@
+Exemplo Prático
+
+Aplicação Front-end envia requisição HTTP com métodos REST para Back-end, que, de acordo com a URL, realizará determinadas rotinas e gerará um JSON de resposta com os resultados da requisição. Essa requisição, geralmente, será reenviada ao Front-end, que o 'consumirá' em um layout interativo ao usuário.
+
+Exemplo consultar dados de cliente:
+    Usuário clica em "Consultar Cliente", que enviará URL requisitando dados do cliente ao Back-end. Conforme parâmetros da URI requisitada (ID do usuário, URL via método GET) (Request), dinâmica e denominada endpoint, com isso, o Back-end, por meio da API REST (Métodos e padrões de código) com Laravel, consultará o Banco de dados, criará JSON com resultado dos dados do cliente solicitado (caso exista) e o enviará de volta ao Front-end (Response), que lerá o JSON (Consumir API REST) com React, mostrando os dados do cliente em interface gráfica agradável para o usuário.
+
+Fluxo de Comunicação Front-end e Back-end
+
+    Front-end: É a parte da aplicação com a qual o usuário interage diretamente (a interface do site ou aplicativo).
+
+    Back-end: É a parte da aplicação que roda no servidor e lida com a lógica de negócios, acesso a dados, etc.
+    
+    Comunicação: O front-end envia requisições (geralmente via JavaScript) para os endpoints da API no back-end. O back-end processa a requisição e envia uma resposta, geralmente no formato JSON. O front-end então usa esses dados JSON para exibir as informações para o usuário.

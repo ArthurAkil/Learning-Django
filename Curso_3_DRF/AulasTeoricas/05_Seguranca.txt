@@ -3,3 +3,17 @@ Segurança
 Uso da cache para requests: Cliente faz requisição ao servidor, que enviará a resposta e a armazenará em memória. As próximas requisições similares consultarão diretamente o cache, dispensando acesso ao servidor todas as vezes
     
     O Redis é um exemplo de ferramente que constrói tal estrutura.
+
+Cache: Armazenar temporariamente as respostas do servidor no cliente (ou em servidores intermediários) para que requisições futuras pelos mesmos dados sejam mais rápidas, evitando sobrecarregar o servidor.
+
+Limitar quantidade de requests no servidor para evitar queda do mesmos
+
+Limitação de Requisições (Rate Limiting): Controlar o número de requisições que um cliente pode fazer em um determinado período para evitar abusos e garantir a estabilidade do servidor.
+
+Promover autenticação e autorização de acesso, aderindo Tokens, via Public Key enviada no Header da Request para autenticação e acesso ao servidor:
+    Authentication: Who are you
+    Authorization: What you can do
+
+Autenticação e Autorização via Tokens: Mecanismos para verificar a identidade do cliente (autenticação) e garantir que ele tenha permissão para acessar os recursos solicitados (autorização). 
+
+Tokens são credenciais digitais que são trocadas entre o cliente e o servidor para manter a segurança.

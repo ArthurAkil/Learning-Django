@@ -1,0 +1,17 @@
+Django REST Framework
+
+Django REST Framework (DRF), ferramenta oficial do Django, possui mecanismos automatizados para criação e gerenciamento de projetos API REST, dispensando serviços terceiros para testes como o Postman.
+
+    Criar API REST via código manualmente, juntamente com autenticação Serializer e todas as funções de CRUD, seguindo os padrões oficiais do framework (RESTful)
+
+    Utilizar Generic Views, favorecendo assim a produtividade do desenvolvimento
+
+Django REST Framework (DRF)
+
+    É uma biblioteca poderosa para o framework Django (um framework Python para desenvolvimento web) que facilita muito a criação de APIs REST.
+
+    Mecanismos Automatizados: O DRF oferece ferramentas e funcionalidades que automatizam muitas tarefas comuns na criação de APIs, como serialização de dados (converter dados do banco de dados para JSON e vice-versa) e tratamento de requisições e respostas.
+
+    Serializadores: Componentes do DRF que convertem objetos Python (como os modelos do Django) em formatos que podem ser facilmente transmitidos (como JSON) e vice-versa.
+    
+    Generic Views: São classes pré-construídas no DRF que fornecem funcionalidades comuns para operações CRUD (listar, criar, ler, atualizar, deletar) com pouco código. Elas ajudam a criar APIs de forma mais rápida e consistente.
