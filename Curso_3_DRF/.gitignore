@@ -1,0 +1,45 @@
+# Byte-code files
+*.pyc
+__pycache__/
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Database files
+*.sqlite3
+db.sqlite3
+
+# Media and static files (if not managed by a separate service like S3)
+/media/
+/static_collected/
+
+# IDE-specific files (e.g., VS Code, PyCharm)
+.vscode/
+.idea/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+*.env
+
+# Log files
+*.log
+
+# Test and coverage files
+.coverage
+htmlcov/
+
+# Pipenv files (if using Pipenv)
+Pipfile.lock
+
+# Django migration files (optional, depending on team workflow)
+# If you are managing migrations collaboratively, you might want to include them.
+# Otherwise, you can ignore them to avoid conflicts if each developer manages their own.
+# However, for production deployments, migrations are typically required.
+# app_name/migrations/00*_initial.py
+# app_name/migrations/00*.py
