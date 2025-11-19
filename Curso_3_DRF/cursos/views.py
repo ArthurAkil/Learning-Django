@@ -16,9 +16,24 @@ class CursoAPIView(APIView):
         cursos = Curso.objects.all() # Busca todos os cursos do banco (QuerySet (Lista))
         serializer = CursoSerializer(cursos, many=True) # Converte p/ JSON, many=True: converter TODOS os dados. Sem o many, pega apenas um (server para parametros de get específico)
         return Response(serializer.data) # Retorna a lista como resposta ja transformada em JSON
+    
+    def post(self, request):
+        serializer = CursoSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+        # return Response({"msg": "Criado com sucesso"}, status=status.HTTP_201_CREATED) outra forma de response
 
 class AvaliacaoAPIView(APIView):
     def get(self, request):
-        avaliacoes = Avaliacao.objects.all()
+        avaliacoes = Avaliacao.objects.all() # Busca todos os cursos do banco (QuerySet (Lista))
         serializer = AvaliacaoSerializer(avaliacoes, many=True)
-        return Response(serializer.data)
+        # Converte p/ JSON, many=True: converter TODOS os dados. Sem o many, pega apenas um (server para parametros de get específico)
+        return Response(serializer.data) # Retorna a lista como resposta ja transformada em JSON
+    
+    def post(self, request):
+        serializer = AvaliacaoSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response({"msg": "Avaliação criada com sucesso", "data": serializer.data}, status=status.HTTP_201_CREATED)
+        # return Response(serializer.data, status=status.HTTP_201_CREATED)
