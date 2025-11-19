@@ -1,0 +1,25 @@
+HTTP Response
+
+Resposta HTTP do servidor web ao dispositivo, sob sua Requisição
+
+    Na requisição existe query string?
+    Qual foi o verbo HTTP que realizou a ação?
+    Quais os dados do header?
+    Qual o formato requisitado?
+    Quais dados da coleção ou indivíduo do recurso solicitado precisam ser enviados?
+
+Header da Response (volta para o cliente)
+
+    Content-Type: text/javacript (Formato de dado conforme requisitado)
+    Last-Modified: Tue, 15 Jan 2023, 12:45:26 GMT
+    Expires: Thu, 22 Jan 2023, 16:00:00 GTM
+    Status: 200 OK (Código de status HTTP)
+
+Códigos de Status HTTP
+
+São códigos de três dígitos que o servidor envia na resposta para informar o resultado da requisição:
+    1xx: Informacional
+    2xx (Sucesso): Indica que a requisição foi bem-sucedida (ex: 200 OK).
+    3xx (Redirecionamento): Indica que o cliente precisa fazer outra requisição para obter o recurso (ex: 301 Moved Permanently).
+    4xx (Erro do Cliente): Indica que houve um erro na requisição feita pelo cliente (ex: 404 Not Found, 400 Bad Request).
+    5xx (Erro do Servidor): Indica que houve um erro no servidor ao processar a requisição (ex: 500 Internal Server Error).

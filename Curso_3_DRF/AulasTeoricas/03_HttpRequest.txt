@@ -1,0 +1,30 @@
+HTTP Request
+
+Requisição HTTP do dispositivo ao servidor Web
+
+Incluem dados de pares chave/valor na URI:
+
+    1. Path Parameter (ou URL Parameter)
+        É quando o valor faz parte do caminho da URL.
+        /api/produtos/42
+        /api/usuarios/5/pedidos
+        São usados para identificar um recurso específico.
+
+    2. Query Parameter
+        /api/produtos?categoria=eletronicos&pagina=
+        Usado para filtro, busca, paginação, ordenação, etc.
+
+Versão da API:
+/api/v1/produtos
+
+Header da request:
+    Accept: Especifica formato do arquivo desejado pelo requester
+        accept: application/xml
+        accept: application/json
+        accept: application/pdf
+    
+    Accept-Language: Idioma do conteúdo
+
+    Cache-Control: Controle de conteúdo cache (Dados e tempo)
+
+    

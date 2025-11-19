@@ -1,0 +1,41 @@
+REST
+
+Representational State Transfer
+
+Técnica que consiste em princípios que, quando seguidos, permitem a criação de projetos (Web services) com interfaces/arquitetura bem definidas (Padrão REST)
+
+Antigamente era GET e POST, mas precisavamos de algo com mais funções para fazer o CRUD, então veio o DELETE, PATCH, PUT
+
+Nativamente, o HTTP é Stateless (Não guarda estado). Com o uso de REST, permitirá que as requisições HTTP armazenem dados (estados)
+
+O Conceito de Stateless (Sem Estado)
+
+    HTTP Stateless: Normalmente, o protocolo HTTP não guarda informações sobre as requisições anteriores. Cada nova requisição é tratada como se fosse a primeira. Imagine que o garçom não se lembra do seu pedido anterior.
+    
+    REST e Estado: Embora o HTTP seja stateless, o REST permite que informações sobre a "sessão" ou o estado da interação sejam passadas em cada requisição (por exemplo, através de cabeçalhos), para que o servidor saiba quem está fazendo a requisição.
+
+    Sistemas RESTful: São sistemas que seguem os princípios do REST.
+
+Utiliza novos métodos/verbos REST HTTP
+
+Os Web services que estão em conformidade com o estilo arquitetural REST são denominados Web Services RESTful
+
+    Sistema é considerado RESTful quando segue corretamente o padrão REST
+
+Verbos HTTP REST (CRUD)
+    
+    POST → Create
+        /api/produtos (cria)
+
+    GET → Read
+        /api/produtos
+        /api/produtos/42
+
+    PUT → Update (substitui tudo)
+        /api/produtos/42
+
+    PATCH → Update parcial (opcional)
+        /api/produtos/42
+
+    DELETE → Delete
+        /api/produtos/42

@@ -1,0 +1,14 @@
+API
+
+Application Programming interface tem função de intermediar comunicação universal entre diferentes sistemas, assim como do banco de dado com o próprio sistema (interno ou externo)
+
+Utiliza protocolo de comunicação HTTP (XML/JSON), requisitados via URL específica, independente da tecnologia do sistema que irá consumi-la (Acessá-la)
+    
+    Interface de comunicação HTTP
+
+URL: http://www.sistema.com
+URL + URI: http://www.sistema.com/api/produtos
+    URI é a parte dinâmica presente na url, ou, endpoints
+    
+Endpoint coleção: api/produtos
+Endpoint individual: api/produtos/2

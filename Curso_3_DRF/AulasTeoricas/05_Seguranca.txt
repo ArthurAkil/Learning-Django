@@ -1,0 +1,5 @@
+Segurança
+
+Uso da cache para requests: Cliente faz requisição ao servidor, que enviará a resposta e a armazenará em memória. As próximas requisições similares consultarão diretamente o cache, dispensando acesso ao servidor todas as vezes
+    
+    O Redis é um exemplo de ferramente que constrói tal estrutura.
