@@ -1,0 +1,7 @@
+Criar Projeto
+
+Criar novo arquivo 'views.py' e aplicar Generic Views em seu conteúdo
+
+Inserir rotas extras no '.views' em 'escola2/cursos/urls.py'
+
+Testa CRUD no Browser:
